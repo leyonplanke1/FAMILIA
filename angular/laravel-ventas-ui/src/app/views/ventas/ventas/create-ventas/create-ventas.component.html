@@ -1,0 +1,351 @@
+<!-- [ navigation menu ] end -->
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+
+
+
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header card">
+            <div class="row align-items-end">
+                <div class="col-lg-8">
+                    <div class="page-header-title">
+                        <i class="feather icon-credit-card bg-c-blue"></i>
+                        <div class="d-inline">
+                            <h5>Añadir Nuevas Ventas </h5>
+                            <span>Esta Seccion Muestra el formulario para Agregar nuevas Ventas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="page-header-breadcrumb">
+                        <ul class=" breadcrumb breadcrumb-title">
+                            <li class="breadcrumb-item">
+                                <a routerLink="/dashboard"><i class="feather icon-home"></i></a>
+                            </li>
+                            <li class="breadcrumb-item"><a>Ventas</a>
+                            </li>
+                            <li class="breadcrumb-item"><a>Venta</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a>Nuevo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+
+
+
+
+
+
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <!-- [ page content ] start -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Guardar la Venta</h5>
+                                    <span>Guardar    Ingresos</span>
+                                    <div class="card-header-right">
+                                        <ul class="list-unstyled card-option">
+                                            <li class="first-opt"><i
+                                                    class="feather icon-chevron-left open-card-option"></i></li>
+                                            <li><i class="feather icon-maximize full-card"></i></li>
+                                            <li><i class="feather icon-minus minimize-card"></i></li>
+                                            <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                            <li><i class="feather icon-trash close-card"></i></li>
+                                            <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    <form action="" autocomplete="off">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="cboCliente">Cliente</label>
+                                                    <select [(ngModel)]="cboCliente" name="cboCliente"
+                                                        id="cboCliente" class="form-control  ">
+                                                        <option value="0">Selecciona un Cliente</option>
+                                                        <option *ngFor="let prov of data_prove" [value]="prov.id">
+                                                            {{ prov.nombre }} - {{ prov.num_documento }}</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="tipo_comprobante">Tipo de Comprobante</label>
+                                                    <select [(ngModel)]="tipo_comprobante" name="tipo_comprobante"
+                                                        id="tipo_comprobante" class="form-control"
+                                                        (change)="CambiarImpuesto()">
+                                                        <option value="">Selecciona</option>
+                                                        <option value="Boleta">Boleta</option>
+                                                        <option value="Factura">Factura</option>
+                                                        <option value="Ticket">Ticket</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-3 col-sm-3 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="serie_comprobante">serie comprobante</label>
+                                                    <input [(ngModel)]="serie_comprobante" type="text"
+                                                        name="serie_comprobante" id="serie_comprobante"
+                                                        class="form-control" placeholder="serie del comprobante">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="num_comprobante">Numero comprobante</label>
+                                                    <input [(ngModel)]="num_comprobante" type="text"
+                                                        name="num_comprobante" id="num_comprobante" required
+                                                        class="form-control" placeholder="Numero del comprobante">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-3 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="impuesto">Impuesto</label> <br>
+                                                    <input  [(ngModel)]="impuesto" type="checkbox" name="impuesto"
+                                                        id="impuesto" [disabled]="is_edit"> 18% Impuesto
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr> 
+
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12 col-sm-12">
+                                                <div class="panel panel-primary">
+                                                    <div class="row panel-body">
+                                                        <div class="col-md-3 col-sm-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label for="">Articulo</label>
+                                                                <select [(ngModel)]="pidarticulo" name="pidarticulo"
+                                                                    id="pidarticulo" class="form-control " (change)="ObtenerTextoArticulo($event)">
+                                                                    <option value="0">Seleciona un Articulo</option>
+                                                                    <option *ngFor="let arti of data_arti"
+                                                                        [value]="arti.id">{{ arti.codigo }} -
+                                                                        {{ arti.nombre }}</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2 col-sm-2 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label for="cantidad">Cantidad</label>
+                                                                <input [(ngModel)]="pcantidad" type="number" name="pcantidad" id="pcantidad"
+                                                                    class="form-control" placeholder="cantidad">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2 col-sm-2 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label for="pstock">Stock</label>
+                                                                <input readonly type="text" [(ngModel)]="pstock" name="pstock"
+                                                                    id="pstock" class="form-control"
+                                                                    placeholder="Stock">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2 col-sm-2 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label for="precioventa">Precio Venta</label>
+                                                                <input readonly [(ngModel)]="pprecio_venta" type="text" name="pprecio_venta"
+                                                                    id="pprecio_venta" class="form-control"
+                                                                    placeholder="Venta">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2 col-sm-2 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label for="precioventa">Descuento</label>
+                                                                <input [(ngModel)]="pdescuento" type="number" name="pdescuento"
+                                                                    id="pdescuento" class="form-control"
+                                                                    placeholder="Descuento">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-1 col-sm-2 col-sm-12">
+                                                            <div class="form-group">
+                                                                <label for="votn" style="opacity: 0">botonesssss</label>
+                                                                <br>
+                                                                <button (click)="addDetalle()" type="button" id="bt_add" class="btn btn-outline-info my-2 my-sm-0">ADD</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 col-dm-12 col-xs-12">
+                                                            <table id="detalles"
+                                                                class="table table-striped table-bordered table-hover table-sm">
+                                                                <thead class="thead-dark">
+                                                                    <tr>
+                                                                        <th>Opciones</th>
+                                                                    <th>Articulo</th>
+                                                                    <th>Cantidad</th>                                                                    
+                                                                    <th>Precio Venta</th>
+                                                                    <th>Descuento</th>
+                                                                    <th>Subtotal</th>
+                                                                    </tr>
+                                                                    
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr
+                                                                        *ngFor="let det of detallesVentas; let i = index">
+                                                                        <td>
+                                                                            <button  (click)="deleteDetalle(i)"
+                                                                                class="btn btn-sm btn-outline-danger my-2 my-sm-0"
+                                                                                style="margin-right: 3px;">delete</button>
+                                                                            <button  (click)="editDetalles(i)"
+                                                                                type="button"
+                                                                                class="btn btn-sm btn-outline-success my-2 my-sm-0"
+                                                                                data-toggle="modal"
+                                                                                data-target="#exampleModal"
+                                                                                data-whatever="@mdo">edit</button>
+
+                                                                        </td>
+                                                                        <td>{{det.det_articulo}} </td>
+                                                                        <td>{{det.det_cantidad}}</td>                                                                        
+                                                                        <td>S/. {{det.det_precio_venta}}</td>
+                                                                        <td>S/. {{det.det_descuento}}</td>
+                                                                        <td>S/.
+                                                                            {{ (det.det_cantidad * det.det_precio_venta) - det.det_descuento}}
+                                                                        </td>
+                                                                    </tr>
+
+                                                                </tbody>
+                                                                <tfoot>
+                                                                    <th colspan="4"></th>
+                                                                    <th>
+                                                                        <h5 style="text-align: right;"><b>Sub-Total:
+                                                                            </b></h5>
+                                                                        <h5 style="text-align: right;"><b>Impuesto: </b>
+                                                                        </h5>
+                                                                        <h5 style="text-align: right;"><b>Total: </b>
+                                                                        </h5>
+                                                                    </th>
+                                                                    <th>
+                                                                        <h5> <b id="total">S/. {{  total  }}</b></h5>
+                                                                        <h5> <b id="total">S/. {{  imp  }}</b></h5>
+                                                                        <h5> <b id="total">S/. {{  totaltotal  }}</b>
+                                                                        </h5>
+                                                                    </th>
+                                                                </tfoot>
+
+
+                                                            </table>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <hr>
+
+                                            <div class="col-md-12 col-sm-12 col-sm-12" id="Guardar">
+                                                <div class="row justify-content-center" style="margin-bottom: 10px;">
+                                                    <button routerLink="/ventas"
+                                                        class="btn btn-outline-danger my-2 my-sm-0"
+                                                        style="margin-left: 5px;">Cancelar</button>
+                                                    <button (click)="Guardar()"
+                                                        class="btn btn-outline-success my-2 my-sm-0"
+                                                        style="margin-left: 5px;">Guardar</button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </form>
+
+
+                                    <div    class="modal fade  " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <form autocomplete="off">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Editar Detalle
+                                                        </h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="container-fluid">
+
+                                                            <div class="form-group">
+                                                                <label for="recipient-name"
+                                                                    class="col-form-label">Productos:</label>
+                                                                <select id="det_idarticulo" name="det_idarticulo"
+                                                                    [(ngModel)]="model2.det_idarticulo"
+                                                                    class="form-control" (change)="ObtenerTextoArticulo2($event)">
+                                                                    <option *ngFor="let arti of data_arti"
+                                                                        [value]="arti.id">{{ arti.codigo }} -
+                                                                        {{ arti.nombre }}</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label for="recipient-name"
+                                                                            class="col-form-label">Cantidad:</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="det_cantidad" name="det_cantidad"
+                                                                            [(ngModel)]="model2.det_cantidad" />
+                                                                    </div>
+                                                                </div> 
+                                                                
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label for="recipient-name"
+                                                                            class="col-form-label">Venta:</label>
+                                                                        <input readonly type="text" class="form-control"
+                                                                            id="det_precio_venta"
+                                                                            name="det_precio_venta"
+                                                                            [(ngModel)]="model2.det_precio_venta" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <div class="form-group">
+                                                                        <label for="recipient-name"
+                                                                            class="col-form-label">Descuento:</label>
+                                                                        <input  type="text" class="form-control"
+                                                                            id="det_descuento"
+                                                                            name="det_descuento"
+                                                                            [(ngModel)]="model2.det_descuento" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Cerrar</button>
+                                                        <button (click)="updateDetalles()" type="button"
+                                                            class="btn btn-primary">Guardar</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ page content ] end -->
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- [ style Customizer ] start -->
+<div id="styleSelector">
+</div>
+<!-- [ style Customizer ] end -->

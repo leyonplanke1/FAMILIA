@@ -1,0 +1,118 @@
+<!-- [ navigation menu ] end -->
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+
+
+
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header card">
+            <div class="row align-items-end">
+                <div class="col-lg-8">
+                    <div class="page-header-title">
+                        <i class="feather icon-credit-card bg-c-blue"></i>
+                        <div class="d-inline">
+                            <h5>Añadir Nueva Categoría</h5>
+                            <span>Esta Seccion Muestra el form para Añadir una nueva categoria</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="page-header-breadcrumb">
+                        <ul class=" breadcrumb breadcrumb-title">
+                            <li class="breadcrumb-item">
+                                <a routerLink="/dashboard"><i class="feather icon-home"></i></a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!">Almacén</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="#!">Nueva Categoría</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+
+
+
+
+
+
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <!-- [ page content ] start -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Nueva Categoría</h5>
+                                    <span>Agregar nueva categoría</span>
+                                    <div class="card-header-right">
+                                        <ul class="list-unstyled card-option">
+                                            <li class="first-opt"><i
+                                                    class="feather icon-chevron-left open-card-option"></i></li>
+                                            <li><i class="feather icon-maximize full-card"></i></li>
+                                            <li><i class="feather icon-minus minimize-card"></i></li>
+                                            <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                            <li><i class="feather icon-trash close-card"></i></li>
+                                            <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    <form action="" autocomplete="off">
+                                        <div class="row justify-content-center" style="margin-bottom: 10px;">
+                                            <div class="col-2">
+                                                <label for="inputEmail3" class=" col-form-label"
+                                                    style="float: right;">Nombre</label>
+                                            </div>
+                                            <div class="col-4"> 
+                                                <input [(ngModel)]="categoria.nombre" name="nombre" type="text" class="form-control" 
+                                                    placeholder="nombre de la categoria">
+                                            </div>
+
+                                        </div>
+                                        <div class="row justify-content-center" style="margin-bottom: 10px;">
+
+                                            <div class="col-2">
+                                                <label for="inputEmail3" class=" col-form-label"
+                                                    style="float: right;">Descripción</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input  [(ngModel)]="categoria.descripcion" name="descripcion" type="text" class="form-control" 
+                                                    placeholder="descripcion">
+                                            </div> 
+                                        </div>
+                                        
+                                        <hr>
+
+                                        <div class="row justify-content-center">
+                                            <button routerLink="/categorias"
+                                                class="btn waves-effect waves-light btn-danger btn-outline-danger"
+                                                style="margin-left: 5px;">Cancelar</button>
+                                            <button (click)="Guardar()" class="btn waves-effect waves-light btn-success btn-outline-success"
+                                                style="margin-left: 5px;">Guardar</button>
+
+                                        </div>
+                                    </form>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ page content ] end -->
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- [ style Customizer ] start -->
+<div id="styleSelector">
+</div>
+<!-- [ style Customizer ] end -->

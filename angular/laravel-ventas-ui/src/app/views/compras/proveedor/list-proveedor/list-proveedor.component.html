@@ -1,0 +1,205 @@
+<!-- [ navigation menu ] end -->
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+
+
+
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header card">
+            <div class="row align-items-end">
+                <div class="col-lg-8">
+                    <div class="page-header-title">
+                        <i class="feather icon-credit-card bg-c-blue"></i>
+                        <div class="d-inline">
+                            <h5>Todos los Prooveedores</h5>
+                            <span>Esta Seccion Muestra el listado de todos los Prooveedores</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="page-header-breadcrumb">
+                        <ul class=" breadcrumb breadcrumb-title">
+                            <li class="breadcrumb-item">
+                                <a routerLink="/dashboard"><i class="feather icon-home"></i></a>
+                            </li>
+                            <li class="breadcrumb-item"><a>Compras</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a>Prooveedores</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+
+
+
+
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <!-- [ page content ] start -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Acciones</h5>
+                                    <div class="card-header-right">
+                                        <ul class="list-unstyled card-option">
+                                            <li class="first-opt"><i
+                                                    class="feather icon-chevron-left open-card-option"></i></li>
+                                            <li><i class="feather icon-maximize full-card"></i></li>
+                                            <li><i class="feather icon-minus minimize-card"></i></li>
+                                            <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                            <li><i class="feather icon-trash close-card"></i></li>
+                                            <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+
+
+                                    <div class="col-md-12 col-sm-12  ">
+
+                                        <div class="x_panel ">
+                                            <button routerLink="/proveedores/add" class="btn btn-info pull-right"
+                                                style="margin-left: 10px; float: right;">Nuevo</button>
+                                            <button class="btn btn-primary pull-right" style="margin-left: 10px; float: right;"  (click)="proveedoresPDF();">Reporte</button>
+
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ page content ] end -->
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <!-- [ page content ] start -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Lista de Prooveedores</h5>
+                                    <span>todos los Prooveedores</span>
+                                    <div class="card-header-right">
+                                        <ul class="list-unstyled card-option">
+                                            <li class="first-opt"><i
+                                                    class="feather icon-chevron-left open-card-option"></i></li>
+                                            <li><i class="feather icon-maximize full-card"></i></li>
+                                            <li><i class="feather icon-minus minimize-card"></i></li>
+                                            <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                            <li><i class="feather icon-trash close-card"></i></li>
+                                            <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+
+
+                                    <div class="col-md-12 col-sm-12  ">
+
+                                        <div class="x_panel">
+
+
+                                            <div class="x_content">
+
+                                                <div class="navbar navbar-light bg-light float-left">
+                                                    <form class="form-inline" autocomplete="off"> 
+                                                        <span>Mostrando </span> <select  (change)="ngOnInit()" class="form-control mr-sm-2 " [(ngModel)]="cboPage" name="cboPage" id="cboPage">
+                                                        <option *ngFor="let item of contador  " [value]="item">{{item}}</option> 
+                                                      </select> <span>Regístros</span>
+                                                    </form>
+                                                  </div>
+                                                  <nav class="navbar navbar-light bg-light float-right">
+                                                    <form class="form-inline" autocomplete="off">
+                                                      <div class="">
+                                                        <input [(ngModel)]="query" name="query" style="width: 350px;" class="form-control mr-sm-2 " type="buscar" placeholder="Buscar"
+                                                        aria-label="Search" (ngModelChange)="ngOnInit()">
+                                                      </div>                            
+                                                      <!-- <button class="btn btn-outline-success my-2 my-sm-0"  (click)="ngOnInit()">Buscar</button> -->
+                                                    </form>
+                                                  </nav>
+                                                <div class="table-responsive">
+
+                                                    <table class="table table-hover table-bordered table-sm "
+                                                        width="100%">
+                                                        <thead class="thead-dark">
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th>Nombre</th>
+                                                                <th>Documento</th>
+                                                                <th>Num Documento</th>
+                                                                <th>Direccion</th>
+                                                                <th>Telefono</th> 
+                                                                <th>Opciones</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let row of data; let cont = index">
+                                                                <th scope="row">{{ cont + 1 }}</th>
+                                                                <td>{{ row.nombre }}</td>
+                                                                <td>{{ row.tipo_documento }}</td>
+                                                                <td>{{ row.num_documento }}</td>
+                                                                <td>{{ row.direccion }}</td>
+                                                                <td>{{ row.telefono }}</td> 
+                                                                <td>
+                                                                    <button (click)="Editar(row)" class="btn btn-mat waves-effect waves-light btn-info btn-sm">Edit</button>
+                                                                    <button (click)="Delete(row)" class="btn btn-mat waves-effect waves-light btn-danger btn-sm" style="margin-left: 3px;">Delete</button>
+                                                                </td>
+                                                            </tr>
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                    <div class="float-left">
+                                                        <p>Mostrando 1 al {{pageSize}} de un total de {{data.length}} Regístros</p>
+                                                      </div>
+                            
+                                                      <div class="float-right">
+                                                        <ngb-pagination [collectionSize]="data.length " [(page)]="page" [maxSize]="5"  [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
+                                                    
+                                                      </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ page content ] end -->
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- [ style Customizer ] start -->
+<div id="styleSelector">
+</div>
+<!-- [ style Customizer ] end -->

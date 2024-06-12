@@ -1,0 +1,194 @@
+
+                        <!-- [ navigation menu ] end -->
+                        <div class="pcoded-content">
+
+                          <div class="page-header card">
+                            <div class="row align-items-end">
+                                <div class="col-lg-8">
+                                    <div class="page-header-title">
+                                        <i class="feather icon-home bg-c-blue"></i>
+                                        <div class="d-inline">
+                                            <h5>Dashboard</h5>
+                                            <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="page-header-breadcrumb">
+                                        <ul class=" breadcrumb breadcrumb-title">
+                                            <li class="breadcrumb-item">
+                                                <a  routerLink="/dashboad"><i class="feather icon-home"></i></a>
+                                            </li>
+                                            <li class="breadcrumb-item"><a routerLink="/dashboad">Dashboard CRM</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          <div class="pcoded-inner-content">
+
+
+                            <div class="main-body">
+                              <div class="page-wrapper">
+                                  <div class="page-body">
+                                      <!-- [ page content ] start -->
+                                      <div class="row">
+
+                                          <!-- product profit start -->
+                                          <div class="col-xl-3 col-md-6">
+                                              <div class="card prod-p-card card-red">
+                                                  <div class="card-body">
+                                                      <div class="row align-items-center m-b-30">
+                                                          <div class="col">
+                                                              <h6 class="m-b-5 text-white">Total Ingresos</h6>
+                                                              <h3 class="m-b-0 f-w-700 text-white">$1,783</h3>
+                                                          </div>
+                                                          <div class="col-auto">
+                                                              <i class="fas fa-money-bill-alt text-c-red f-18"></i>
+                                                          </div>
+                                                      </div>
+                                                      <p class="m-b-0 text-white"><span class="label label-danger m-r-10">+11%</span> del Mes anterior</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-xl-3 col-md-6">
+                                              <div class="card prod-p-card card-blue">
+                                                  <div class="card-body">
+                                                      <div class="row align-items-center m-b-30">
+                                                          <div class="col">
+                                                              <h6 class="m-b-5 text-white">Total Ventas</h6>
+                                                              <h3 class="m-b-0 f-w-700 text-white">15,830</h3>
+                                                          </div>
+                                                          <div class="col-auto">
+                                                            <i class="fas fa-dollar-sign text-c-blue f-18"></i>
+                                                          </div>
+                                                      </div>
+                                                      <p class="m-b-0 text-white"><span class="label label-primary m-r-10">+12%</span>del Mes anterior</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-xl-3 col-md-6">
+                                              <div class="card prod-p-card card-green">
+                                                  <div class="card-body">
+                                                      <div class="row align-items-center m-b-30">
+                                                          <div class="col">
+                                                              <h6 class="m-b-5 text-white">Total Ganáncia</h6>
+                                                              <h3 class="m-b-0 f-w-700 text-white">$6,780</h3>
+                                                          </div>
+                                                          <div class="col-auto">
+                                                            <i class="fas fa-database text-c-green f-18"></i>
+                                                              
+                                                          </div>
+                                                      </div>
+                                                      <p class="m-b-0 text-white"><span class="label label-success m-r-10">+52%</span>del Mes anterior</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="col-xl-3 col-md-6">
+                                              <div class="card prod-p-card card-yellow">
+                                                  <div class="card-body">
+                                                      <div class="row align-items-center m-b-30">
+                                                          <div class="col">
+                                                              <h6 class="m-b-5 text-white">Producto vendido</h6>
+                                                              <h3 class="m-b-0 f-w-700 text-white">6,784</h3>
+                                                          </div>
+                                                          <div class="col-auto">
+                                                              <i class="fas fa-tags text-c-yellow f-18"></i>
+                                                          </div>
+                                                      </div>
+                                                      <p class="m-b-0 text-white"><span class="label label-warning m-r-10">+52%</span>del Mes anterior</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <!-- product profit end -->
+ 
+
+
+
+                                        <div class="col-xl-6 col-md-12">
+                                            <div class="card latest-update-card">
+                                                <div class="card-header">
+                                                    <h5>Proveedores</h5>
+                                                    <div class="card-header-right">
+                                                        <ul class="list-unstyled card-option">
+                                                            <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                                            <li><i class="feather icon-maximize full-card"></i></li>
+                                                            <li><i class="feather icon-minus minimize-card"></i></li>
+                                                            <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                                            <li><i class="feather icon-trash close-card"></i></li>
+                                                            <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="card-block">
+                                                    <br>
+                                                    <div class="latest-update-box">                                                         
+                                                        <div  *ngFor="let row of dataproveedor " class="row p-b-30">
+                                                            <div class="col-auto text-right update-meta p-r-0">
+                                                                <i class="feather icon-briefcase bg-c-red update-icon"></i>
+                                                            </div>
+                                                            <div class="col p-l-5">
+                                                                <a ><h6>{{row.nombre}}.</h6></a>
+                                                                <p class="text-muted m-b-0">{{row.tipo_documento}}: {{row.num_documento}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <a routerLink="/proveedores" class="btn btn-link">ver todo</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                          <div class="col-xl-6 col-md-12">
+                                              <div class="card new-cust-card">
+                                                  <div class="card-header">
+                                                      <h5>Nuevos Clientes</h5>
+                                                      <div class="card-header-right">
+                                                          <ul class="list-unstyled card-option">
+                                                              <li class="first-opt"><i class="feather icon-chevron-left open-card-option"></i></li>
+                                                              <li><i class="feather icon-maximize full-card"></i></li>
+                                                              <li><i class="feather icon-minus minimize-card"></i></li>
+                                                              <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                                              <li><i class="feather icon-trash close-card"></i></li>
+                                                              <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                                          </ul>
+                                                      </div>
+                                                  </div>
+                                                  <div class="card-block">
+                                                      <div *ngFor="let row of dataclientes " class="align-middle m-b-35">
+                                                          <img src="assets/files/assets/images/avatar-2.jpg" alt="user image" class="img-radius img-40 align-top m-r-15">
+                                                          <div class="d-inline-block">
+                                                              <a  ><h6>{{row.nombre}}</h6></a>
+                                                              <p class="text-muted m-b-0">{{row.tipo_documento}}: {{row.num_documento}}</p>
+                                                              <span class="status active"></span>
+                                                          </div>
+                                                      </div>
+                                                      <div class="text-center">
+                                                          <a routerLink="/clientes" class="btn btn-link">ver todo</a>
+                                                      </div>
+                                                       
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <!-- lattest update, new client end -->
+                                          
+                                           
+ 
+                                      </div>
+                                      <!-- [ page content ] end -->
+                                  </div>
+                              </div>
+                          </div>
+
+                            
+                          </div>
+                        </div>
+                        <!-- [ style Customizer ] start -->
+                        <div id="styleSelector">
+                        </div>
+                                    <!-- [ style Customizer ] end -->

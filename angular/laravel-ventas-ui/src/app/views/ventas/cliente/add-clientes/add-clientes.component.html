@@ -1,0 +1,165 @@
+<!-- [ navigation menu ] end -->
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+
+
+
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header card">
+            <div class="row align-items-end">
+                <div class="col-lg-8">
+                    <div class="page-header-title">
+                        <i class="feather icon-credit-card bg-c-blue"></i>
+                        <div class="d-inline">
+                            <h5>Añadir Nuevo Cliente</h5>
+                            <span>Esta Seccion Muestra el formulario para Añadir un nuevo Cliente</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="page-header-breadcrumb">
+                        <ul class=" breadcrumb breadcrumb-title">
+                            <li class="breadcrumb-item">
+                                <a routerLink="/dashboard"><i class="feather icon-home"></i></a>
+                            </li>
+                            <li class="breadcrumb-item"><a  >Ventas</a>
+                            </li>
+                            <li class="breadcrumb-item"><a  >Clientes</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a  >añadir Cliente</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+
+
+
+
+
+
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <!-- [ page content ] start -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Nuevo Cliente</h5>
+                                    <span>Agregar nuevo Cliente</span>
+                                    <div class="card-header-right">
+                                        <ul class="list-unstyled card-option">
+                                            <li class="first-opt"><i
+                                                    class="feather icon-chevron-left open-card-option"></i></li>
+                                            <li><i class="feather icon-maximize full-card"></i></li>
+                                            <li><i class="feather icon-minus minimize-card"></i></li>
+                                            <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                            <li><i class="feather icon-trash close-card"></i></li>
+                                            <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    <form action="" autocomplete="off">
+                                        <div class="row justify-content-center" style="margin-bottom: 10px;">
+                                            <div class="col-2">
+                                                <label for="inputEmail3" class=" col-form-label"
+                                                    style="float: right;">Nombre</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input [(ngModel)]="clientes.nombre" name="nombre" type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="nombre">
+                                            </div>
+
+                                        </div>
+                                        <div class="row justify-content-center" style="margin-bottom: 10px;">
+                                            <div class="col-2">
+                                                <label for="inputEmail3" class=" col-form-label"
+                                                    style="float: right;">Tipo de Documento</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <select [(ngModel)]="tip_docu"  name="tip_docu"   id="TxtTipoDocumento" required class="form-control">
+                                                    <option value="0">Selecciona un Tipo</option>
+                                                        <option *ngFor="let docs of documentos" [value]="docs.id"   >{{ docs.tipo_documento }}</option>
+                                                </select>  
+                                            </div>
+
+                                        </div>
+                                        <div class="row justify-content-center" style="margin-bottom: 10px;">
+
+                                            <div class="col-2">
+                                                <label for="inputEmail3" class=" col-form-label"
+                                                    style="float: right;">Numero de Documento</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input [(ngModel)]="clientes.num_documento" name="num_documento" type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="Numero de Documento">
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-center" style="margin-bottom: 10px;">
+
+                                            <div class="col-2">
+                                                <label for="inputEmail3" class=" col-form-label"
+                                                    style="float: right;">E-mail</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input [(ngModel)]="clientes.email" name="email" type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="E-mail">
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-center"style="margin-bottom: 10px;">
+
+                                            <div class="col-2">
+                                                <label for="inputEmail3" class=" col-form-label"
+                                                    style="float: right;">Direccion</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input [(ngModel)]="clientes.direccion" name="direccion" type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="Direccion">
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-center"style="margin-bottom: 10px;">
+
+                                            <div class="col-2">
+                                                <label for="inputEmail3" class=" col-form-label"
+                                                    style="float: right;">Telefono</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input [(ngModel)]="clientes.telefono" name="telefono" type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="Telefono">
+                                            </div>
+                                        </div>
+                                        <hr>
+
+                                        <div class="row justify-content-center" style="margin-bottom: 10px;">
+                                            <button routerLink="/clientes"
+                                                class="btn waves-effect waves-light btn-danger btn-outline-danger"
+                                                style="margin-left: 5px;">Cancelar</button>
+                                                <button (click)="Guardar()" class="btn waves-effect waves-light btn-success btn-outline-success"
+                                                style="margin-left: 5px;">Guardar</button>
+
+                                        </div>
+                                    </form>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ page content ] end -->
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- [ style Customizer ] start -->
+<div id="styleSelector">
+</div>
+<!-- [ style Customizer ] end -->

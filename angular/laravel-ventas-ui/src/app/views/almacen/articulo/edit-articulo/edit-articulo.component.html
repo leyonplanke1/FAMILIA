@@ -1,0 +1,168 @@
+<!-- [ navigation menu ] end -->
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+
+
+
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header card">
+            <div class="row align-items-end">
+                <div class="col-lg-8">
+                    <div class="page-header-title">
+                        <i class="feather icon-credit-card bg-c-blue"></i>
+                        <div class="d-inline">
+                            <h5>Editar Articulo</h5>
+                            <span>Esta Sección Muestra el formulario para Editar el articulo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="page-header-breadcrumb">
+                        <ul class=" breadcrumb breadcrumb-title">
+                            <li class="breadcrumb-item">
+                                <a routerLink="/dashboard"><i class="feather icon-home"></i></a>
+                            </li>
+                            <li class="breadcrumb-item"><a  >Almacén</a>
+                            </li>
+                            <li class="breadcrumb-item"><a  >Articulos</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a  >editar articulo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+
+
+
+
+
+
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <!-- [ page content ] start -->
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Editar Articulo</h5>
+                                    <span>Actualizar el articulo</span>
+                                    <div class="card-header-right">
+                                        <ul class="list-unstyled card-option">
+                                            <li class="first-opt"><i
+                                                    class="feather icon-chevron-left open-card-option"></i></li>
+                                            <li><i class="feather icon-maximize full-card"></i></li>
+                                            <li><i class="feather icon-minus minimize-card"></i></li>
+                                            <li><i class="feather icon-refresh-cw reload-card"></i></li>
+                                            <li><i class="feather icon-trash close-card"></i></li>
+                                            <li><i class="feather icon-chevron-left open-card-option"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card-block">
+                                    <form action="" enctype="multipart/form-data">
+                                        <div class="row justify-content-center" style="margin-bottom: 10px;">
+                                            <div class="col-2">
+                                                <label for="inputEmail3" class=" col-form-label"
+                                                    style="float: right;">Nombre</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input [(ngModel)]="articulo.nombre" name="nombre" type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="nombre">
+                                            </div>
+
+                                        </div>
+                                        <div class="row justify-content-center" style="margin-bottom: 10px;">
+                                            <div class="col-2">
+                                                <label for="inputEmail3" class=" col-form-label"
+                                                    style="float: right;">Codigo</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input [(ngModel)]="articulo.codigo" name="codigo" type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="Codigo">
+                                            </div>
+
+                                        </div>
+                                        <div class="row justify-content-center" style="margin-bottom: 10px;">
+
+                                            <div class="col-2">
+                                                <label for="inputEmail3" class=" col-form-label"
+                                                    style="float: right;">Descripción</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input [(ngModel)]="articulo.descripcion" name="descripcion" type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="descripcion">
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-center" style="margin-bottom: 10px;">
+                                            <div class="col-2">
+                                                <label for="inputEmail3" class=" col-form-label"
+                                                    style="float: right;">Categoria</label>
+                                            </div>
+                                            <div class="col-4"> 
+                                                    <select [(ngModel)]="articulo.idcategoria" name="idcategoria" id="cboCategoria" class="form-control">
+                                                        <option value="">Selecciona una categoria</option>
+                                                        <option *ngFor="let cat of data_cate" value="{{ cat.id }}">{{ cat.nombre }}</option>
+                                                    </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="row justify-content-center"style="margin-bottom: 10px;">
+
+                                            <div class="col-2">
+                                                <label for="inputEmail3" class=" col-form-label"
+                                                    style="float: right;">Stock</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input [(ngModel)]="articulo.stock" name="stock" type="text" class="form-control" id="inputEmail3"
+                                                    placeholder="stock">
+                                            </div>
+                                        </div>
+                                        <div class="row justify-content-center" style="margin-bottom: 10px;">
+
+                                            <div class="col-2">
+                                                <label for="inputEmail3" class=" col-form-label"
+                                                    style="float: right;">Imagen</label>
+                                            </div>
+                                            <div class="col-4">
+                                                <input [(ngModel)]="articulo.imagen" name="imagen" type="file" name="TxtImagen" id="TxtImagen"  >
+                                                <br>
+
+                                                <img src="assets/imagenes/articulos/{{ articulo.imagen }}" width="250px" height="250px" alt="image">
+
+                                            </div>
+                                        </div>
+                                        <hr>
+
+                                        <div class="row justify-content-center" style="margin-bottom: 10px;">
+                                            <button routerLink="/articulos"
+                                                class="btn waves-effect waves-light btn-danger btn-outline-danger"
+                                                style="margin-left: 5px;">Cancelar</button>
+                                            <button (click)="Actualizar(articulo)" class="btn waves-effect waves-light btn-success btn-outline-success"
+                                                style="margin-left: 5px;">Actualizar</button>
+
+                                        </div>
+                                    </form>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ page content ] end -->
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- [ style Customizer ] start -->
+<div id="styleSelector">
+</div>
+<!-- [ style Customizer ] end -->
